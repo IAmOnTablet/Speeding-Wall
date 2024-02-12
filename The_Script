@@ -1,9 +1,24 @@
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1043.60193, 19.3957233, 409.521484, 0.16472733, -5.29571587e-08, 0.986339152, 3.19927089e-08, 1, 4.83475553e-08, -0.986339152, 2.35914985e-08, 0.16472733)
-wait (1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-738.033813, 19.3938313, 244.547852, 0.986620009, 7.63987344e-08, -0.163036749, -6.77558205e-08, 1, 5.85726063e-08, 0.163036749, -4.67422154e-08, 0.986620009)
+local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-1035.01477, 19.421751, 417.259399, -0.822681427, -8.78474324e-08, -0.568502665, -4.33213287e-08, 1, -9.18338401e-08, 0.568502665, -5.09217024e-08, -0.822681427)
+
 wait(1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-441.087585, 19.3180828, 403.787903, -0.970401525, -1.83756246e-08, -0.241497189, 8.35998204e-09, 1, -1.09683114e-07, 0.241497189, -1.08455573e-07, -0.970401525)
+
+local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-733.510681, 19.4198589, 230.470245, 0.997950554, -6.07614439e-08, -0.0639901161, 6.24089367e-08, 1, 2.37472157e-08, 0.0639901161, -2.76921011e-08, 0.997950554)
+
 wait(1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-139.620392, 19.3838215, 245.285507, 0.999547541, 5.27756416e-09, 0.0300778337, -3.23504934e-09, 1, -6.79563144e-08, -0.0300778337, 6.78282603e-08, 0.999547541)
+
+local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-435.425354, 19.4393291, 421.288849, 0.412388802, 3.7552117e-09, -0.911007941, -3.70775077e-09, 1, 2.44364129e-09, 0.911007941, 2.37005993e-09, 0.412388802)
+
+wait(1)
+
+local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-134.96701, 19.4098492, 240.004028, -0.987045825, 2.61201366e-10, -0.160438687, 1.58714805e-10, 1, 6.51604659e-10, 0.160438687, 6.17699614e-10, -0.987045825)
+
+wait(1)
+
+game.Players.LocalPlayer.Character.Humanoid:TakeDamage(100)
+
+
 wait(5)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1561.33972, -479.308594, 81.4754944, -0.592329144, -0.780215979, 0.20102033, 0.0625120103, 0.20424287, 0.976922274, -0.80326736, 0.591225743, -0.0722061396)
