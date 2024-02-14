@@ -2,6 +2,6 @@ local player = game.Players.LocalPlayer local OrionLib = loadstring(game:HttpGet
 
 for i = 1, iterations do
     loadstring(game:HttpGet("https://raw.githubusercontent.com/IAmOnTablet/Speeding-Wall/main/The_Script"))()
-end end }) --[[ Name = - The name of the button. Callback = - The function of the button. ]] Tab:AddButton({ Name = "Low Gravity", Callback = function() game.Workspace.Gravity = 10 end }) --[[ Name = - The name of the button. Callback = - The function of the button. ]] --[[ Name = - The name of the button. Callback = - The function of the button. ]] Tab:AddButton({ Name = "Rejoin", Callback = function() while true do local TeleService = game:GetService("TeleportService")
+end end }) --[[ Name = - The name of the button. Callback = - The function of the button. ]] Tab:AddButton({ Name = "Rejoin to stop autofarm", Callback = function() while true do local TeleService = game:GetService("TeleportService")
         TeleService:Teleport(482742811)
     end end}) --[[ Name = - The name of the button. Callback = - The function of the button. ]]
