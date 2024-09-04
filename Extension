@@ -1,0 +1,6 @@
+_G.Autofarm = Value
+while _G.Autofarm do
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IAmOnTablet/Speeding-Wall/main/The_Script"))()
+task.wait()
+end
+    end
