@@ -1,4 +1,4 @@
---WARNING! This has a toggle instead of a button!!!
+--Note to self: WARNING! This has a toggle instead of a button!!!
 
 local ScreenGui = Instance.new("ScreenGui")
 
