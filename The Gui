@@ -1,126 +1,85 @@
---Note to self: WARNING! This has a toggle instead of a button!!!
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
 
-local ScreenGui = Instance.new("ScreenGui")
+if _G.AutoExecuter == true then
+local ScriptSpawnSlap = queueonteleport or queue_on_teleport
+if ScriptSpawnSlap then
+    ScriptSpawnSlap([[
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+repeat wait() until game.Players.LocalPlayer
+wait(0.25)
+_G.AutoExecuter = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Slap_Battles/main/Slap_Battles.lua"))()
+    ]])
+else
+game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "You cannot auto execute",Icon = "rbxassetid://7733658504",Duration = 5})
+end
+end
 
-local MainFrame = Instance.new("Frame")
+game:GetService("GuiService"):ClearError()
 
-local Title = Instance.new("TextLabel")
+local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Giangplay/Script/main/Orion_Library_PE_V2.lua")))()
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local Window = OrionLib:MakeWindow({IntroText = "Speeding Wall Autofarm", IntroIcon = "rbxassetid://773409128",Name = ("Speeding Wall Autofarm".." | ".. identifyexecutor()),IntroToggleIcon = "rbxassetid://7734091286", HidePremium = false, SaveConfig = false, IntroEnabled = true, ConfigFolder = "slap battles"})
 
-local ToggleButton = Instance.new("TextButton")
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://7734053426",
+	PremiumOnly = false
+})
 
-local EnableButton = Instance.new("TextButton")
+MainTab:AddToggle({
+	Name = "Teleport Autofarm",
+	Default = false,
+	Callback = function(Value)
+_G.TpAutofarm = Value
+while _G.TpAutofarm do
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/IAmOnTablet/Speeding-Wall/main/The_Script"))()
+    task.wait()
+end
+	 end
+})
 
+local Tab = Window:MakeTab({
+	Name = "Others",
+	Icon = "rbxassetid://7734053426",
+	PremiumOnly = false
+})
 
+Tab:AddButton({
+	Name = "Infinite Yield Delta",
+	Callback = function()
+loadstring(game:HttpGet("https://gist.githubusercontent.com/lxnnydev/c533c374ca4c1dcef4e1e10e33fa4a0c/raw/03e74f184f801dad77d3ebe1e2f18c6ac87ca612/delta___IY.gistfile1.txt.lua"))()
+	 end
+})
 
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+	    loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+	 end
+})
 
+Tab:AddButton({
+	Name = "Position Gui",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Position_Gui.lua", true))()
+  	end    
+})
 
-ScreenGui.Parent = game.CoreGui
+Tab:AddButton({
+	Name = "Fe Fly V3",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Fly_V3.lua"))()
+  	end    
+})
 
-
-
-MainFrame.Parent = ScreenGui
-
-MainFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-
-MainFrame.BorderSizePixel = 2
-
-MainFrame.BorderColor3 = Color3.fromRGB(0, 170, 255)
-
-MainFrame.Size = UDim2.new(0, 200, 0, 100)
-
-MainFrame.Position = UDim2.new(0, 10, 0.5, -50)
-
-MainFrame.Draggable = true
-
-MainFrame.Visible = false
-
-MainFrame.Active = true
-
-
-
-Title.Parent = MainFrame
-
-Title.Text = "Speeding Wall Autofarm"
-
-Title.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-
-Title.BorderSizePixel = 2
-
-Title.BorderColor3 = Color3.fromRGB(0, 170, 255)
-
-Title.Size = UDim2.new(1, 0, 0, 40)
-
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-
-Title.TextScaled = true
-
-
-
-ToggleButton.Parent = ScreenGui
-
-ToggleButton.Text = "+"
-
-ToggleButton.Size = UDim2.new(0, 60, 0, 40)
-
-ToggleButton.Position = UDim2.new(0, 10, 0.5, -130)
-
-ToggleButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-
-ToggleButton.BorderSizePixel = 2
-
-ToggleButton.BorderColor3 = Color3.fromRGB(0, 170, 255)
-
-ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-
-ToggleButton.TextScaled = true
-
-ToggleButton.Draggable = true
-
-
-
-local isOn = false  -- Initial state
-_G.Autofarm = false  -- Global variable for the autofarm toggle
-
--- Setting up the button
-EnableButton.Parent = MainFrame
-EnableButton.Text = "Enable"
-EnableButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-EnableButton.BorderSizePixel = 2
-EnableButton.BorderColor3 = Color3.fromRGB(0, 170, 255)
-EnableButton.Size = UDim2.new(1, -20, 0, 30)
-EnableButton.Position = UDim2.new(0, 10, 0, 50)
-EnableButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-EnableButton.TextScaled = true
-EnableButton.Draggable = false
-
--- Toggle functionality
-EnableButton.MouseButton1Click:Connect(function()
-    isOn = not isOn  -- Toggle the state
-    _G.Autofarm = isOn  -- Set the global Autofarm state
-    
-    if isOn then
-        EnableButton.Text = "Disable"
-        print("Toggle is ON - Starting Autofarm...")
-        
-        -- Start the autofarm loop
-        while _G.Autofarm do
-            -- Load and run the script
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/IAmOnTablet/Speeding-Wall/main/The_Script"))()
-            task.wait()  -- Wait before running the script again
-        end
-        
-    else
-        EnableButton.Text = "Enable"
-        print("Toggle is OFF - Stopping Autofarm...")
-        -- _G.Autofarm will be set to false, stopping the loop
-    end
-end)
-
-
-ToggleButton.MouseButton1Click:Connect(function()
-
-    MainFrame.Visible = not MainFrame.Visible
-
-    ToggleButton.Text = MainFrame.Visible and "-" or "+"
-
-end)
+Tab:AddButton({
+	Name = "Dex V3",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
+  	end    
+})
